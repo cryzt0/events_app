@@ -1,6 +1,6 @@
 const Page = () => {
     return(
-        <h1> About us Page</h1>
+        <h1> Event Page</h1>
     )
 }
 
