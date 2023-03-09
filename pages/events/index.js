@@ -1,7 +1,11 @@
-const Page = () => {
+
+
+//this is the main page of events
+const EventsPage = () => {
+  
     return(
         <div> 
-            <h1> Events Page</h1>
+            <h1> Event page </h1>
         <div>
         <a href=''>
         <div>
@@ -47,6 +51,6 @@ const Page = () => {
     )
 }
 
-export default Page;
+export default EventsPage;
 
-//this is the main page of events
+

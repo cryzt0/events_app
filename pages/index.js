@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({data}) {
   return (
     <>
       <Head>
@@ -30,21 +30,23 @@ export default function Home() {
       </header>
 
       <main className={styles.main}>
-        <a href=''>
-        <div>
+        
+        {data.map(ev => <a href={`/events/${ev.id}`}> <Image> </Image></a>)}
+
+
+        <a href='/events/london/'>
           <img />
-          <h2> Events in Madrid </h2>
+          <h2> Events in London </h2>
           <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
           the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
           but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
           containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
-        </div>
+        
         </a>
 
-        <a href=''>
-        <div>
+        <a href='/events/london/'>
           <img />
           <h2> Events in Toluca </h2>
           <p>
@@ -53,11 +55,10 @@ export default function Home() {
           but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
           containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
-        </div>
+        
         </a>
 
-        <a href=''>
-        <div>
+        <a href='/events/london/'>
           <img />
           <h2> Events in Lima </h2>
           <p>
@@ -66,7 +67,7 @@ export default function Home() {
           but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
           containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
           </p>
-        </div>
+        
         </a>
         
       </main>
@@ -76,4 +77,15 @@ export default function Home() {
       </footer>
     </>
   )
+}
+
+export async function getServerSiderProps(){
+  const {events_categories} = await import('/data/data.json');
+  console.log(events_categories);
+  
+  return{
+      props:{
+          data: events_categories,
+      }
+  }
 }

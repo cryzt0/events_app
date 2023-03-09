@@ -1,10 +1,8 @@
-const Page = () => {
+const EventPage = () => {
     return(
         <h1> Our Single Event</h1>
     )
 }
 
-export default Page;
-
-/events/[eventPerCity]/[event]
-/events/evenInLondon/new-years-eve
+export default EventPage;
+//we can add multiple urls because this [id]
